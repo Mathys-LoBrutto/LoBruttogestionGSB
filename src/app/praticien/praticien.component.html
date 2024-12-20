@@ -1,0 +1,18 @@
+<div class="praticien-card">+
+  <img [src]="praticien.imageUrl" alt="Photo du praticien" class="praticien-avatar">
+
+  <div class="praticien-info" [ngStyle]="gsbService.getPraticienInfoStyle(praticien.statut)">
+    <h2 class="praticien-nom">{{ praticien.prenom | titlecase }} {{ praticien.nom | uppercase }}</h2>
+    <p class="praticien-adresse">{{ praticien.adresse }}, {{ praticien.cp }} {{ praticien.ville }}</p>
+    <p class="praticien-statut">Statut : {{ praticien.statut }}</p>
+
+
+  <button (click)="onModificationStatut()" >
+    Modifier le statut
+  </button>
+  </div>
+</div>
+
+
+
+

@@ -30,4 +30,21 @@ export class gsbService {
       "color": statut === 'À visiter' ? 'red' : 'green'
     };
   }
+
+  addPraticien(formValue: {nom: string, prenom: string, adresse: string, cp: string, ville: string, statut: PraticienStatut}): void {
+    const praticien: Praticien = {
+      ...formValue,
+      imageUrl:'',
+      id: (parseInt(this.praticiens[this.praticiens.length - 1].id) + 1).toString(),
+      modifierStatut: function(statut: PraticienStatut) {
+        if (statut === 'À visiter') {
+          this.statut = 'Déjà visité';
+        }else if (statut === 'Déjà visité') {
+          this.statut = 'À visiter'
+        }
+      }
+    };
+    this.praticiens.push(praticien);
+  }
+
 }
